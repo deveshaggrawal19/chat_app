@@ -1,0 +1,20 @@
+{
+  "name": "chat_app",
+  "version": "1.0.0",
+  "description": "real time chat application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/deveshaggrawal19/chat_app"
+  },
+  "author": "devesh aggrawal",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^1.11.0",
+    "redis": "^2.7.1",
+    "socket.io": "^2.0.1"
+  }
+}
