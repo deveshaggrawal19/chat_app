@@ -24,7 +24,7 @@ io.set('authorization', function(data, accept){
 
 io.on('connection', function(socket){
     console.log('A user connected');
-
+    console.log(socket.request.cookie);
     //Grab message from Redis and send to client
     sub.on('message', function(channel, message){
         socket.send(message);
@@ -32,9 +32,10 @@ io.on('connection', function(socket){
 
     //Client is sending message through socket.io
       socket.on('send_message', function (message) {
+
         values = querystring.stringify({
             comment: message,
-            sessionid: socket.handshake.cookie['sessionid'],
+            sessionid: socket.request.cookie['sessionid'],
         });
 
         var options = {
@@ -49,7 +50,7 @@ io.on('connection', function(socket){
         };
 
         //Send message to Django server
-        var request = http.get(options, function(response){
+        var request = http.request(options, function(response){
             response.setEncoding('utf8');
 
             //Print out error message, django gives the message a response
