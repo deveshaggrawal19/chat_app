@@ -1,3 +1,6 @@
+// a good practice to have more robust structure
+'use strict';
+
 var http = require('http');
 var server = http.createServer().listen(4000);
 var io = require('socket.io').listen(server);
